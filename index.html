@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Resume Analyzer</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        h1 { text-align: center; color: #fff; }
+        form { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; backdrop-filter: blur(10px); }
+        input[type="file"], textarea { width: 100%; padding: 12px; margin: 10px 0; border: none; border-radius: 5px; box-sizing: border-box; background: rgba(255,255,255,0.9); }
+        textarea { resize: vertical; min-height: 150px; }
+        button { background: #4CAF50; color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 18px; width: 100%; }
+        button:hover { background: #45a049; }
+        h2 { text-align: center; color: #4CAF50; font-size: 2.5em; }
+    </style>
+</head>
+<body>
+    <h1>AI Resume Analyzer</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <label>Upload Resume (PDF):</label>
+        <input type="file" name="resume" accept=".pdf" required>
+        
+        <label>Job Description:</label>
+        <textarea name="job" rows="10" placeholder="Paste the full job description here..." required></textarea>
+        
+        <button type="submit">Analyze Resume Match</button>
+    </form>
+    
+    {% if score %}
+        <h2>Match Score: {{ score }}%</h2>
+    {% endif %}
+</body>
+</html>
